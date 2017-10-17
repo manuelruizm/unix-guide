@@ -1,6 +1,6 @@
-Capítulo 1: introducción a un entorno gráfico de UNIX
+# Capítulo 1: introducción a un entorno gráfico de UNIX
 
-Exploración de ficheros y carpetas
+### Exploración de ficheros y carpetas
 
 Todos los exploradores de ficheros tienen una funcionalidad muy similar, permitiendo con el menú contextual (botón derecho) crear carpetas, ficheros, cambiar permisos, etc.
 
@@ -29,17 +29,17 @@ Las rutas relativas tienen que ver con el punto en el que nos encontramos en el 
 Por defecto, el usuario tiene un lugar donde tiene permiso para crear, leer y ejecutar cualquier fichero y carpeta. Este lugar es denominado directorio home.
 
 
-Capítulo 2: Órdenes básicas de UNIX/Linux
+# Capítulo 2: Órdenes básicas de UNIX/Linux
 
 Para saber que estamos trabajando con la Shell Bash tenemos que ver que en la terminal aparezca el símbolo $. Si no lo pone, debemos de escribir bash para que cambie.
 
-Órdenes Linux
+### Órdenes Linux
 
-man [ordenes, programas o funciones]
+##### man [ordenes, programas o funciones]
 
 Es el manual de búsqueda que nos indica cómo funcionan las órdenes de UNIX.
 
-ls [opciones] [directorio]
+##### ls [opciones] [directorio]
 
 Lista los contenidos de un directorio
 Opciones de ls:
@@ -48,49 +48,49 @@ Opciones de ls:
 	-r → muestra por pantalla los archivos ordenados en orden inverso
 	-t → los muestra ordenados por fecha de modificación, los más recientes primero
 
-cd [directorio]
+##### cd [directorio]
 
 Cambia de directorio de trabajo. Las abreviaciones . y .. se pueden utilizar como referencia de los directorios actual y padre, respectivamente. El símbolo ~ es el directorio HOME del usuario y el símbolo / al inicio de un camino es el directorio raíz del sistema.
 
-pwd
+##### pwd
 
 Imprime el camino absoluto del directorio actual.
 
-mkdir [opciones] directorio
+##### mkdir [opciones] directorio
 
 Crea un directorio a partir del nombre dado como argumento.
 
 Opciones de mkdir:
 	-p → crea los directorios padre si son necesarios, y si ya existen no da error
 
-rmdir [opciones] directorio
+##### rmdir [opciones] directorio
 
 Borra un directorio existente (solo si está vacío).
 
 Opciones de rmdir:
 	-p → Si le damos una ruta, elimina el directorio actual y sus antecesores
 
-cat [archivo(s)]
+##### cat [archivo(s)]
 
 Orden mutipropósito: muestra el contenido de un archivo o varios, concatena archivos, copia un archivo, crea un archivo de texto o muestra los caracteres invisibles de control.
 
-cp archivo1 archivo2
+##### cp archivo1 archivo2
 
 Copia el archivo1 en el archivo2. Si archivo2 no existe, se crea.
 
-mv fuente destino
+##### mv fuente destino
 
 Renombra archivos o directorios y puede mover de lugar un archivo o directorio.
 
-file archivo(s)
+##### file archivo(s)
 
 Muestra el tipo de archivo dado como argumento.
 
-more archivo(s)
+##### more archivo(s)
 
 Visualiza un archivo fraccionándolo una pantalla cada vez. Antes de usar esta orden es conveniente usar la orden file para comprobar que se trata de un archivo ascii.
 
-rm [opciones] directorio_archivos
+##### rm [opciones] directorio_archivos
 
 Borra archivos y directorios con contenido.
 
@@ -98,18 +98,18 @@ Opciones de rm:
 	-r → elimina directorios y sus contenidos recursivamente
 	-d → elimina directorios vacíos
 
-touch archivo(s)
+##### touch archivo(s)
 
 Si existen los archivos dados como argumentos se modifican su fecha y hora a la actual. En caso contrario, se crean con la fecha actual del sistema.
 
 Opciones de touch:
 	-c → no crea ningún archivo
 
-clear
+##### clear
 
 Borra el contenido del terminal actual.
 
-tail [opciones] [archivo(s)]
+##### tail [opciones] [archivo(s)]
 
 Muestra la parte final del contenido de un archivo dado como argumento. Por defecto muestra 10 líneas.
 
@@ -119,7 +119,7 @@ Opciones de tail:
 	- - lines=k → Muestra las últimas k líneas del archivo
 	-n +k → Le quita al archivo las primeras k líneas y muestra el resto
 
-head [opciones] [archivo(s)]
+##### head [opciones] [archivo(s)]
 
 Muestra la parte inicial del contenido de un archivo dado como argumento. Por defecto muestra 10 líneas.
 
@@ -127,7 +127,7 @@ Opciones de head:
 	- - bytes=[-]k → Muestra los k primeros bytes de un archivo. Si utilizamos el signo '-' 			    muestra todos los bytes menos los k últimos.
 	- -lines=[-]k → Muestra las k primeras líneas de un archivo. Si utilizamos el signo '-' 			  muestra todas las líneas menos las k últimas.
 
-sort [opciones] [archivo(s)]
+##### sort [opciones] [archivo(s)]
 
 Ordena, según un criterio elegido, el contenido de los archivos dados como argumentos.
 
@@ -139,44 +139,44 @@ Opciones de sort:
 	-R → ordena de forma aleatoria
 	-r → ordena de forma inversa a la que ordena sort sin usar opciones (inverso a -d)
 
-setterm -r
+##### setterm -r
 
 Reestablece el estado normal del terminal en el caso de que se visualicen caracteres extraños.
 
-who
+##### who
 
 Muestra qué usuario está conectado al sistema.
 
-Metacaracteres de archivo
+### Metacaracteres de archivo
 
 Cuando se pretende aplicar determinadas acciones a un conjunto de archivos y/o directorios cuyos nombres contienen secuencias de caracteres comunes es muy útil poder nombrarlos a través de una expresión que los pudiera identificar a todos (patrón de igualación). El patrón nos permite pasarle a la orden que vayamos a utilizar una única expresión para poder manipular todo el conjunto.
 
-?
+##### ?
 
 Representa cualquier carácter simple en la posición en la que se indique.
 
-*
+##### *
 
 Representa cualquier secuencia de cero o más caracteres.
 
-[ ]
+##### [ ]
 
 Designan un carácter o rango de caracteres que representan un carácter simple a través de una lista de caracteres o mediantes un rango, en cuyo caso, mostramos el primer y último carácter del rango separados por un guión “-”.
 
-{ }
+##### { }
 
 Sustituyen conjuntos de palabras separadas por comas que comparten partes comunes.
 
-~
+##### ~
 
 Se usa para abreviar el camino absoluto del directorio HOME.
 
 
-Capítulo 3: Permisos y redirecciones
+# Capítulo 3: Permisos y redirecciones
 
-Órdenes Linux
+### Órdenes Linux
 
-chmod permiso(s) archivo(s)
+##### chmod permiso(s) archivo(s)
 
 Esta orden permite cambiar los permisos de acceso a un archivo.
 Primero se debe indicar a qué grupo de usuarios se va a aplicar el cambio con una letra minúscula:
@@ -198,7 +198,7 @@ Ejemplo: chmod u+x,g-w ej2
 	     chmod ug+r ej1
 	     chmod a-w ej?
 
-wc [opciones] archivo(s)
+##### wc [opciones] archivo(s)
 
 Imprime por pantalla el número de líneas, de palabras y de bytes de cada archivo.
 
@@ -209,7 +209,7 @@ Opciones de wc:
 	-w → imprime el número de palabras
 	-L → imprime la longitud del la línea más larga
 
-echo [texto]
+##### echo [texto]
 
 Muestra una línea de texto. Puede ir entrecomillado o no.
 
@@ -218,7 +218,7 @@ Usos de echo:
 	echo “$(orden argumento(s))” → muestra la ejecución de la orden
 	echo “`orden argumento(s)`” → igual que la anterior
 
-date
+##### date
 
 Muestra la fecha y la hora del sistema.
 
@@ -226,90 +226,90 @@ Metacaracteres de redirección
 
 Los metacaracteres de redirección permiten alterar el flujo por defecto de entrada y salida y, por tanto, redireccionar la entrada estándar desde un archivo, y redirigir tanto la salida estándar como el error estándar hacia archivos, además de poder enlazar la salida de una orden con la entrada de otra permitiendo crear un cauce (pipelines) entre varias órdenes.
 
-< nombre
+##### < nombre
 
 Redirecciona la entrada de una orden para que la obtenga del archivo nombre.
 
-> nombre
+##### > nombre
 
 Redirige la salida de una orden para que la escriba en el archivo nombre. Si dicho archivo ya existe, lo sobreescribe. Si dicho archivo no existe, lo crea.
 
-&> nombre
+##### &> nombre
 
 La salida estándar se combina con la salida de error estándar y ambas se escriben en el archivo nombre.
 
->> nombre
+##### >> nombre
 
 Funciona igual que el metacarácter “>” pero añade la salida estándar al final del contenido del archivo nombre.
 
-&>> nombre
+##### &>> nombre
 
 Igual que el metacarácter “&>”, pero añadiendo las dos salidas combinadas al final del archivo nombre.
 
-2> nombre
+##### 2> nombre
 
 Redirige la salida de error estándar a un archivo (sólo funciona en shells de “bash”).
 
-|
+##### |
 
 Crea un cauce entre dos órdenes. La salida de una de ellas se utiliza como entrada de la otra. Se va leyendo de izquierda a derecha.
 
-|&
+##### |&
 
 Crea un cauce entre dos órdenes utilizando las dos salidas (estándar y error) de una de ellas como entrada de la otra.
 
-Metacaracteres sintácticos
+### Metacaracteres sintácticos
 
 Sirven para combinar varias órdenes y construir una única orden lógica.
 
-;
+##### ;
 
 Separador entre órdenes que se ejecutan secuencialmente.
 
-( )
+##### ( )
 
 Se usan para aislar órdenes separadas por “;” o por “|”. Las órdenes dentro de los paréntesis son tratadas como una única orden.
 
-&&
+##### &&
 
 Separador entre órdenes, en la que la orden que sigue al metacarácter “&&” se ejecuta sólo si la orden precedente ha tenido éxito (no ha habido errores).
 
-| |
+##### | |
 
 Separador entre órdenes, en la que la orden que sigue la metacarácter “| |” se ejecuta sólo si la orden precedente falla.
 
 
-Capítulo 4: Variables, alias, órdenes de búsqueda y guiones
+# Capítulo 4: Variables, alias, órdenes de búsqueda y guiones
 
-¿Cómo se crean variables?
+### ¿Cómo se crean variables?
 
 variable=expresion
 vector=(elemento1 elemento2 elemento3)
 variable=`orden o expresion`
 
-Órdenes Linux
+### Órdenes Linux
 
-env
+##### env
 
 Muestra todas las variables de entorno o globales que hay definidas y que son comunes a todos los shells.
 
-printenv
+##### printenv
 
 Realiza lo mismo que la orden anterior.
 
-set
+##### set
 
 Muestra las variables locales que están definidas en la shell actual.
 
-help variables
+##### help variables
 
 Muestra el nombre y el significado de algunas variables del shell.
 
-unset nombre_de_variables
+##### unset nombre_de_variables
 
 Elimina las variables listadas.
 
-declare [opciones] [variable]=[expresion]
+##### declare [opciones] [variable]=[expresion]
 
 Se utiliza para crear variables con ciertos atributos (tipo numérica, etc.).
 
@@ -318,15 +318,15 @@ Opciones de declare:
 	-p → Se utiliza para mostrar los atributos de la variable indicada
 	-g → Se utiliza para crear una variable que sea global
 
-export variable
+##### export variable
 
 Con esta orden podemos exportar las variables que sean locales para poder utilizarlas en otras shells distintas de la actual.
 
-expr expresion
+##### expr expresion
 
 Evalúa la expresión dada, ya sea matemática o lógica.
 
-printf formato [argumentos o mensaje]
+##### printf formato [argumentos o mensaje]
 
 Imprime un mensaje en la pantalla utilizando el formato que se le especifica.
 
@@ -346,15 +346,15 @@ Código de formato:
 	%x → Muestra un número en hexadecimal
 	%o → Muestra un número en octal
 
-alias nombre='orden'
+##### alias nombre='orden'
 
 Se utiliza para definir un comportamiento por defecto de una orden o cambiar el nombre de una orden por estar acostumbrado a usar otro sistema.
 
-unalias nombre_del _alias
+##### unalias nombre_del_alias
 
 Borra o elimina un alias definido previamente.
 
-find lista_de_directorios [expresiones]
+##### find lista_de_directorios [expresiones]
 
 Sirve para buscar archivos en función de las características externas de éste, que pueden ser el tamaño, el nombre, la último fecha de modificación, etc.
 
@@ -369,9 +369,9 @@ Opciones de find:
 		G: el tamaño es en gigabytes
 	Se pueden utilizar comando lógicos como la negación (!), la conjunción (-a) o la 	disyunción (-o).
 
-grep [opciones] patron_de_búsqueda archivos
+##### grep [opciones] patron_de_búsqueda archivos
 
-Ejemplo: grep manolo $HOME/Escritorio/*
+Ejemplo: `grep manolo $HOME/Escritorio/*``
 
 Sirve para buscar en el interior de los archivos, es decir, para algún dato o cualquier otra cosa que esté escrita en el interior de un archivo.
 
@@ -384,43 +384,45 @@ Opciones de grep:
 	-l
 	-e
 
-Variables especiales
+### Variables especiales
 
-$BASH → Contiene la ruta de acceso completa usada para ejecutar la instancia actual de bash.
+***$BASH*** → Contiene la ruta de acceso completa usada para ejecutar la instancia actual de bash.
 
-$HOME → Almacena el directorio raíz del usuario; se puede emplear junto con la orden cd sin argumentos para ir al directorio raíz del usuario.
+***$HOME*** → Almacena el directorio raíz del usuario; se puede emplear junto con la orden cd sin argumentos para ir al directorio raíz del usuario.
 
-$PATH → Guarda el camino de búsqueda de las órdenes, este camino está formado por una lista de todos los directorios en los que queremos buscar una orden.
+***$PATH*** → Guarda el camino de búsqueda de las órdenes, este camino está formado por una lista de todos los directorios en los que queremos buscar una orden.
 
-$? → Contiene el código de retorno de la última orden ejecutada, bien sea una instrucción o un guión. Sale 0 si se ejecutó correctamente, o 1 si hubo algún error. (Hay que utilizarla precedida de echo).
+***$?*** → Contiene el código de retorno de la última orden ejecutada, bien sea una instrucción o un guión. Sale 0 si se ejecutó correctamente, o 1 si hubo algún error. (Hay que utilizarla precedida de echo).
 
 
-Capítulo 5: Expresiones con variables y expresiones regulares
+# Capítulo 5: Expresiones con variables y expresiones regulares
 
-Expresiones con variables
+### Expresiones con variables
 
 $(( … ))
 $[ … ]
 
 Se utilizan para calcular expresiones.
 
-Operadores aritméticos
+### Operadores aritméticos
 
+```bash
 +	-	*	/	%	**	++	- -	( )	,	=
 +=	-=	*=	/=	%=
+```
 
-Operadores relacionales
+### Operadores relacionales
 
+```bash
 =	==	-eq	!=	-ne	<	-lt	>	-gt	<=	-le	>=	-ge
 !	&&	| |
+```
 
-Comparaciones aritméticas y entre cadenas de caracteres
+### Comparaciones aritméticas y entre cadenas de caracteres
 
+### Órdenes Linux
 
-
-Órdenes Linux
-
-bc
+###### bc
 
 Hace cálculos con una precisión decimal arbitraria.
 
@@ -432,34 +434,35 @@ let variable=expresión
 Evalúa expresiones aritméticas.
 
 Orden de los operadores que admite, en orden decreciente de precedencia:
-    	id++, id--	post-incremento, post-decremento de variable 
-    	++id, --id	pre-incremento, pre-decremento de variable 
-    	-, +		menos, más unitarios 
-    	!, ~		Y logico y negacion binaria 
-    	**		exponenciación 
-    	*, /, %		multiplicación, división, resto 
-    	+, -		suma, resta 
-    	<<, >>		desplazamientos de bits a izquierda y derecha 
-    	<=, >=, <, >	comparación 
-    	==, !=		igualdad, desigualdad 
-    	&		Y binario 
-    	^		XOR binario 
-    	|		O binario 
-    	&&		Y lógico 
-    	||		O lógico 
-    	expr ? expr : expr 
-    			operador condicional 
-    	=, *=, /=, %=, 
-    	+=, -=, <<=, >>=, 
-    	&=, ^=, |=	asignación 
+```bash
+id++, id--	post-incremento, post-decremento de variable
+++id, --id	pre-incremento, pre-decremento de variable
+-, +		menos, más unitarios
+!, ~		Y logico y negacion binaria
+**		exponenciación
+*, /, %		multiplicación, división, resto
++, -		suma, resta
+<<, >>		desplazamientos de bits a izquierda y derecha
+<=, >=, <, >	comparación
+==, !=		igualdad, desigualdad
+&		Y binario
+^		XOR binario
+|		O binario
+&&		Y lógico
+||		O lógico
+expr ? expr : expr	operador condicional
+=, *=, /=, %=,
++=, -=, <<=, >>=,
+&=, ^=, |=	asignación
+```
 
-test expresion 
-[ expresion ]
+###### test [ expresion ]
 
 Esta orden evalúa una expresión condicional y da como salida el estado 0, en caso de que expresión se haya evaluado como verdadera, o el estado 1, si la evaluación ha resultado falsa o se le dio algún argumento no válido.
 
-Expresiones de test: (copiar de las prácticas)
+### Expresiones de test: (copiar de las prácticas)
 
+```bash
 if condición;
 then
 	declaraciones;
@@ -468,9 +471,8 @@ then
 [else
 	declaraciones; ]
 fi
+```
 
 Esta orden ejecuta una lista de declaraciones dependiendo de si cumple o no cierta condición.
 
-
-
-TO BE CONTINUED...
+***TO BE CONTINUED...***
